@@ -1,0 +1,41 @@
+name: Crash report
+description: The importer closed unexpectedly; it saved a crash report and offers this form the next time it starts.
+title: "[crash] version system"
+labels: ["crash report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open this form from the importer: after a crash it says where it saved the report and fills in its version and your system here.
+        The report names no one: the app writes your home folder as ~. The authors read every report; one they label `accepted` is looked into for a later release.
+  - type: input
+    id: app
+    attributes:
+      label: "App version"
+      description: The importer's version, as it fills it in.
+      placeholder: "0.100"
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: "System"
+      description: Your operating system, as the importer fills it in.
+      placeholder: "Microsoft Windows 10.0.26300 (win-x64)"
+    validations:
+      required: true
+  - type: textarea
+    id: doing
+    attributes:
+      label: "What you were doing"
+      description: What you did just before the app closed, as far as you remember; the display's scaling if it is not 100 %.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: "Crash report"
+      description: Drop the crash-....txt file the app named here, or paste its text.
+      render: text
+    validations:
+      required: true
