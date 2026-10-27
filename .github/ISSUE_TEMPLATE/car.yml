@@ -1,0 +1,97 @@
+name: Car report
+description: A problem with one car the importer converts, as the app shows it or as RVGL draws, plays or drives it.
+title: "[folder] Car name"
+labels: ["car report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One report per car and per problem. Open this form from the importer, with the car on show and **Report a problem...**: the app fills in the car, the disc and its own version.
+        The authors read every report; one they label `accepted` is checked against the game and fixed in a later release. A report edited after it was accepted waits to be read again.
+  - type: input
+    id: car
+    attributes:
+      label: "Car"
+      description: The car's RVGL folder and its model code, as the importer fills them in.
+      placeholder: "[gt2_saxo_vts] fcs6n"
+    validations:
+      required: true
+  - type: input
+    id: disc
+    attributes:
+      label: "Disc"
+      description: The disc the car was read from, as the importer fills it in.
+      placeholder: "Gran Turismo 2 (PAL), SCES-12380"
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: "App version"
+      description: The importer's version, as it fills it in.
+      placeholder: "0.100"
+    validations:
+      required: true
+  - type: input
+    id: colour
+    attributes:
+      label: "Colour shown"
+      description: The colour on show when you saw the problem.
+      placeholder: "Grand Prix White (grandprixwh)"
+    validations:
+      required: true
+  - type: input
+    id: handling
+    attributes:
+      label: "Handling"
+      description: The handling the car was exported with, as the importer fills it in - Study, or the original RVGL car whose handling it took.
+      placeholder: "Study"
+    validations:
+      required: false
+  - type: input
+    id: rvgl
+    attributes:
+      label: "RVGL version"
+      description: Only when the problem shows in RVGL.
+    validations:
+      required: false
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Category"
+      description: What the problem is about.
+      options:
+        - "Textures and colours"
+        - "Wheels, tyres and wheel arches"
+        - "Ride height"
+        - "Lights"
+        - "Holes or missing parts"
+        - "Sound"
+        - "Handling"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: "Where it shows"
+      multiple: true
+      options:
+        - "In the app"
+        - "In RVGL"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "What is wrong"
+      description: What you see or hear, where on the car, from which view; what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots"
+      description: Drop the screenshots here; mark the spot on them if it is small.
+    validations:
+      required: false
